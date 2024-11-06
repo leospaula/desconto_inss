@@ -12,6 +12,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.0'
+gem 'dartsass-sprockets'
 gem 'chartkick'
 gem 'kaminari'
 gem 'redis-rails'
@@ -22,6 +23,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 7.0.0'
 end
 
 group :development do
