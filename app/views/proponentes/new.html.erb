@@ -77,15 +77,15 @@
 
         <div class="form-group col-md-6">
           <%= form.label :telefones, "Telefone 2", class: "form-label" %>
-          <%= form.text_field :telefones, value: @proponente.telefones&.at(1), name: "proponente[telefones][]", class: "form-control", placeholder: "Opcional" %>
+          <%= form.text_field :telefones, value: @proponente.telefones&.at(1), name: "proponente[telefones][]", class: "form-control", required: true %>
         </div>
       </div>
     </fieldset>
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label>Desconto INSS</label>
-        <input type="text" id="desconto_inss" class="form-control" disabled>
+        <%= form.label :desconto_inss, "Desconto INSS", class: "form-label" %>
+        <%= form.number_field :desconto_inss, class: "form-control", id: "proponente_desconto_inss", readonly: true %>
       </div>
     </div>
 
@@ -98,7 +98,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const salarioField = document.getElementById("proponente_salario");
-    const descontoINSSField = document.getElementById("desconto_inss");
+    const descontoINSSField = document.getElementById("proponente_desconto_inss");
 
     salarioField.addEventListener("input", function() {
       const salario = salarioField.value;
@@ -110,7 +110,7 @@
             descontoINSSField.value = data.desconto_inss;
           });
       } else {
-        descontoINSSField.value = "";
+        descontoINSSField.value = '';
       }
     });
   });

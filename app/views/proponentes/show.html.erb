@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1>Detalhes do Proponente</h1>
+  <p><strong>Nome:</strong> <%= @proponente.nome %></p>
+  <p><strong>CPF:</strong> <%= @proponente.cpf %></p>
+  <p><strong>Data de Nascimento:</strong> <%= l(@proponente.data_nascimento) %></p>
+  <p><strong>Salário Atual:</strong> <%= number_to_currency(@proponente.salario, unit: "R$") %></p>
+  <p><strong>Desconto do INSS:</strong> <%= number_to_currency(@proponente.desconto_inss, unit: "R$") %></p>
+
+  <hr>
+
+  <h2>Atualizar Salário</h2>
+  <%= form_with url: atualizar_salario_proponente_path(@proponente), method: :patch, local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :novo_salario, "Novo Salário", class: "form-label" %>
+      <%= form.number_field :novo_salario, class: "form-control", step: 0.01, placeholder: "Digite o novo valor" %>
+    </div>
+    <%= form.submit "Atualizar Salário", class: "btn btn-primary mt-3" %>
+  <% end %>
+
+  <%= link_to 'Voltar', proponentes_path, class: 'btn btn-secondary mt-4' %>
+</div>

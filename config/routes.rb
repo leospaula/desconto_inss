@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,10 +13,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "proponentes#index"
-  resources :proponentes, only: [:index, :new] do
+  resources :proponentes, only: [:index, :new,:create, :show] do
     collection do
       get :calcular_inss
       get :relatorio
     end
+
+    member do
+      patch :atualizar_salario
+    end
   end
+
+  mount Sidekiq::Web => '/sidekiq'
 end
