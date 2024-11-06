@@ -1,4 +1,5 @@
 class ProponentesController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :new, :create, :atualizar_salario, :relatorio]
   before_action :set_proponente, only: [:show, :atualizar_salario]
 
   def index

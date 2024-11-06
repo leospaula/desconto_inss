@@ -2,64 +2,69 @@
   <h1 class="mb-4">Novo Proponente</h1>
 
   <%= form_with(model: @proponente, local: true, class: "needs-validation") do |form| %>
-    <div class="form-row">
-      <div class="form-group col-md-6">
+    <div class="row">
+      <div class="form-group col-md-4">
         <%= form.label :nome, class: "form-label" %>
         <%= form.text_field :nome, class: "form-control", required: true, placeholder: "Digite o nome completo" %>
       </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <%= form.label :cpf, class: "form-label" %>
         <%= form.text_field :cpf, class: "form-control", required: true, placeholder: "Apenas números" %>
       </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-2">
         <%= form.label :data_nascimento, class: "form-label" %>
         <%= form.date_field :data_nascimento, class: "form-control", required: true %>
       </div>
+    </div>
 
-      <div class="form-group col-md-6">
+    <div class="row">
+      <div class="form-group col-md-2">
         <%= form.label :salario, class: "form-label" %>
         <%= form.number_field :salario, step: 0.01, class: "form-control", id: "proponente_salario", required: true %>
+      </div>
+
+      <div class="form-group col-md-2">
+        <%= form.label :desconto_inss, "Desconto INSS", class: "form-label" %>
+        <%= form.number_field :desconto_inss, class: "form-control", id: "proponente_desconto_inss", readonly: true %>
       </div>
     </div>
 
     <fieldset>
       <legend>Endereço</legend>
       
-      <div class="form-row">
+      <div class="row">
         <div class="form-group col-md-8">
           <%= form.label :logradouro, "Logradouro", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("logradouro"), name: "proponente[endereco][logradouro]", class: "form-control", required: true %>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
           <%= form.label :numero, "Número", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("numero"), name: "proponente[endereco][numero]", class: "form-control", required: true %>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
+      <div class="row">
+        <div class="form-group col-md-4">
           <%= form.label :bairro, "Bairro", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("bairro"), name: "proponente[endereco][bairro]", class: "form-control", required: true %>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <%= form.label :cidade, "Cidade", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("cidade"), name: "proponente[endereco][cidade]", class: "form-control", required: true %>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-2">
           <%= form.label :estado, "Estado", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("estado"), name: "proponente[endereco][estado]", class: "form-control", required: true %>
         </div>
+      </div>
 
-        <div class="form-group col-md-6">
+      <div class="row">
+        <div class="form-group col-md-4">
           <%= form.label :cep, "CEP", class: "form-label" %>
           <%= form.text_field :endereco, value: @proponente.endereco&.dig("cep"), name: "proponente[endereco][cep]", class: "form-control", required: true, placeholder: "Somente números" %>
         </div>
@@ -69,25 +74,18 @@
     <fieldset>
       <legend>Telefones</legend>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
+      <div class="row">
+        <div class="form-group col-md-4">
           <%= form.label :telefones, "Telefone 1", class: "form-label" %>
           <%= form.text_field :telefones, value: @proponente.telefones&.at(0), name: "proponente[telefones][]", class: "form-control", required: true %>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
           <%= form.label :telefones, "Telefone 2", class: "form-label" %>
           <%= form.text_field :telefones, value: @proponente.telefones&.at(1), name: "proponente[telefones][]", class: "form-control", required: true %>
         </div>
       </div>
     </fieldset>
-
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <%= form.label :desconto_inss, "Desconto INSS", class: "form-label" %>
-        <%= form.number_field :desconto_inss, class: "form-control", id: "proponente_desconto_inss", readonly: true %>
-      </div>
-    </div>
 
     <div class="form-group mt-3">
       <%= form.submit "Salvar Proponente", class: "btn btn-primary" %>

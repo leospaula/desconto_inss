@@ -17,6 +17,7 @@ gem 'chartkick'
 gem 'kaminari'
 gem 'redis-rails'
 gem 'sidekiq'
+gem 'devise'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
