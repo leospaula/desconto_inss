@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Relatório de Funcionários por Faixa Salarial</h1>
+
+  <div class="mb-4">
+    <%= link_to 'Voltar para Proponentes', proponentes_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Distribuição de Funcionários por Faixa Salarial</h5>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover table-bordered">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Faixa Salarial</th>
+            <th scope="col">Quantidade de Funcionários</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @report_data.each do |data| %>
+            <tr>
+              <td><%= data[:faixa] %></td>
+              <td><%= data[:quantidade] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Gráfico de Distribuição de Funcionários</h5>
+    </div>
+    <div class="card-body">
+      <%= pie_chart @report_data.map { |d| [d[:faixa], d[:quantidade]] }, height: "400px", library: { title: { display: true, text: "Distribuição de Funcionários por Faixa Salarial" } } %>
+    </div>
+  </div>
+</div>

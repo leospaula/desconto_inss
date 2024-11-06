@@ -22,6 +22,10 @@ class ProponentesController < ApplicationController
     render json: { desconto_inss: desconto_inss }
   end
 
+  def relatorio
+    @report_data = InssReportPresenter.new(Proponente.all).group_by_salary_range
+  end
+
   private
 
   def proponente_params

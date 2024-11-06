@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   root to: "proponentes#index"
   resources :proponentes, only: [:index, :new] do
     collection do
-      get "calcular_inss", to: "proponentes#calcular_inss"
+      get :calcular_inss
+      get :relatorio
     end
   end
 end

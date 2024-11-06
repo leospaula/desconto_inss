@@ -24,6 +24,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem 'dotenv-rails'
   gem 'rspec-rails', '~> 7.0.0'
+  gem 'factory_bot_rails'
+  gem 'pry', '~> 0.14.2'
 end
 
 group :development do
