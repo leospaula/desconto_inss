@@ -94,3 +94,24 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const salarioField = document.getElementById("proponente_salario");
+    const descontoINSSField = document.getElementById("desconto_inss");
+
+    salarioField.addEventListener("input", function() {
+      const salario = salarioField.value;
+
+      if (salario) {
+        fetch(`/proponentes/calcular_inss?salario=${salario}`)
+          .then(response => response.json())
+          .then(data => {
+            descontoINSSField.value = data.desconto_inss;
+          });
+      } else {
+        descontoINSSField.value = "";
+      }
+    });
+  });
+</script>

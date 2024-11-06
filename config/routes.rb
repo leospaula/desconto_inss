@@ -11,5 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "proponentes#index"
-  resources :proponentes, only: [:index, :new]
+  resources :proponentes, only: [:index, :new] do
+    collection do
+      get "calcular_inss", to: "proponentes#calcular_inss"
+    end
+  end
 end

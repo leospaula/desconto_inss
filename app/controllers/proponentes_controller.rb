@@ -16,6 +16,12 @@ class ProponentesController < ApplicationController
     end
   end
 
+  def calcular_inss
+    salario = params[:salario].to_f
+    desconto_inss = InssDiscountCalculator.new(salario).call
+    render json: { desconto_inss: desconto_inss }
+  end
+
   private
 
   def proponente_params
