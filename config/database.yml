@@ -16,6 +16,7 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: desconto_inss_production
   username: desconto_inss
   password: <%= ENV["DESCONTO_INSS_DATABASE_PASSWORD"] %>
