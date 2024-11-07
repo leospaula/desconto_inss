@@ -11,23 +11,23 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false
-gem 'bootstrap', '~> 5.0'
-gem 'dartsass-sprockets'
-gem 'chartkick'
-gem 'kaminari'
-gem 'redis-rails'
-gem 'sidekiq'
-gem 'devise'
+gem "bootstrap", "~> 5.0"
+gem "dartsass-sprockets"
+gem "chartkick"
+gem "kaminari"
+gem "redis-rails"
+gem "sidekiq"
+gem "devise"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
-  gem 'dotenv-rails'
-  gem 'rspec-rails', '~> 7.0.0'
-  gem 'factory_bot_rails'
-  gem 'pry', '~> 0.14.2'
-  gem 'faker'
+  gem "dotenv-rails"
+  gem "rspec-rails", "~> 7.0.0"
+  gem "factory_bot_rails"
+  gem "pry", "~> 0.14.2"
+  gem "faker"
 end
 
 group :development do

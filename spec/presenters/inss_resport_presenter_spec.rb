@@ -12,10 +12,10 @@ RSpec.describe InssReportPresenter do
       report = InssReportPresenter.new(Proponente.all).group_by_salary_range
 
       expect(report).to match_array([
-        { :faixa => "Até R$ 1.045,00", :quantidade => 1 },
-        { :faixa => "De R$ 1.045,01 a R$ 2.089,60", :quantidade => 1 },
-        { :faixa => "De R$ 2.089,61 até R$ 3.134,40", :quantidade => 1 },
-        { :faixa => "De R$ 3.134,41 até R$ 6.101,06", :quantidade => 2 }
+        { faixa: "Até R$ 1.045,00", quantidade: 1 },
+        { faixa: "De R$ 1.045,01 a R$ 2.089,60", quantidade: 1 },
+        { faixa: "De R$ 2.089,61 até R$ 3.134,40", quantidade: 1 },
+        { faixa: "De R$ 3.134,41 até R$ 6.101,06", quantidade: 2 }
       ])
     end
   end

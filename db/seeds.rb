@@ -28,7 +28,7 @@ puts "Base de dados limpa. Todos os proponentes foram removidos."
       estado: Faker::Address.state_abbr,
       cep: Faker::Address.zip
     },
-    telefones: ["123456789", "987654321"],
+    telefones: [ "123456789", "987654321" ],
     salario: salario,
     desconto_inss: InssDiscountCalculator.new(salario).call
   )

@@ -7,10 +7,10 @@ class Proponente < ApplicationRecord
   private
 
   def validar_endereco
-    errors.add(:endereco, "inválido") unless endereco.is_a?(Hash) && endereco.key?('logradouro') &&
-                                            endereco.key?('numero') && endereco.key?('bairro') &&
-                                            endereco.key?('cidade') && endereco.key?('estado') &&
-                                            endereco.key?('cep')
+    errors.add(:endereco, "inválido") unless endereco.is_a?(Hash) && endereco.key?("logradouro") &&
+                                            endereco.key?("numero") && endereco.key?("bairro") &&
+                                            endereco.key?("cidade") && endereco.key?("estado") &&
+                                            endereco.key?("cep")
   end
 
   def validar_telefones

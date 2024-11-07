@@ -1,7 +1,7 @@
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout', registration: 'register' }
+  devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", registration: "register" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "proponentes#index"
-  resources :proponentes, only: [:index, :new,:create, :show] do
+  resources :proponentes, only: [ :index, :new, :create, :show ] do
     collection do
       get :calcular_inss
       get :relatorio
@@ -25,5 +25,5 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => "/sidekiq"
 end

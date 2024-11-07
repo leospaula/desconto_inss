@@ -1,6 +1,6 @@
 class ProponentesController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new, :create, :atualizar_salario, :relatorio]
-  before_action :set_proponente, only: [:show, :atualizar_salario]
+  before_action :authenticate_user!, only: [ :show, :new, :create, :atualizar_salario, :relatorio ]
+  before_action :set_proponente, only: [ :show, :atualizar_salario ]
 
   def index
     @proponentes = Proponente.page(params[:page]).per(5)
@@ -15,7 +15,7 @@ class ProponentesController < ApplicationController
   def create
     @proponente = Proponente.new(proponente_params)
     if @proponente.save
-      redirect_to proponentes_path, notice: 'Proponente criado com sucesso.'
+      redirect_to proponentes_path, notice: "Proponente criado com sucesso."
     else
       render :new
     end
@@ -35,10 +35,10 @@ class ProponentesController < ApplicationController
     novo_salario = params[:novo_salario].to_f
     if novo_salario > 0
       UpdateSalaryJob.perform_later(@proponente.id, novo_salario)
-      redirect_to @proponente, notice: 'Atualização de salário em processamento.'
+      redirect_to @proponente, notice: "Atualização de salário em processamento."
     else
-      redirect_to @proponente, alert: 'Erro: o salário deve ser maior que zero.'
-    end  
+      redirect_to @proponente, alert: "Erro: o salário deve ser maior que zero."
+    end
   end
 
   private
