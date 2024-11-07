@@ -46,9 +46,8 @@
       </div>
     </nav>
 
-    <%= render 'shared/flash_messages' if !flash.empty? %>
-
     <div class="container mt-4">
+      <%= render 'shared/flash_messages' if !flash.empty? %>
       <%= yield %>
     </div>
   </body>
