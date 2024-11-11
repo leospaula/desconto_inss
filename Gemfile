@@ -24,7 +24,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "dotenv-rails"
-  gem "rspec-rails", "~> 7.0.0"
+  gem "rspec-rails", "~> 7.1.0"
   gem "factory_bot_rails"
   gem "pry", "~> 0.14.2"
   gem "faker"
